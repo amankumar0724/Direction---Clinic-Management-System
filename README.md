@@ -1,9 +1,8 @@
 # 🏥 Direction – Clinic Management System (Doctor + Receptionist Portal)
 
-https://direction-clinic-management-system.netlify.app
 ## 🌐 Live Demo
 
-[🔗 View Live Site](https://direction-clinic-management-system.netlify.app)
+🔗[View Live Site](https://direction-clinic-management-system.netlify.app)
 
 **Direction** is a lightweight, modular, and scalable **Clinic Workflow Management System** designed to streamline communication and task management between **Doctors** and **Receptionists**. It automates patient token generation, prescription sharing, billing, and patient history tracking — all stored securely in **Firebase**.
 
