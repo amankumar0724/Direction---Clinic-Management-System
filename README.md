@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# 🏥 Direction – Clinic Management System (Doctor + Receptionist Portal)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://direction-clinic-management-system.netlify.app
 
-## Available Scripts
+**Direction** is a lightweight, modular, and scalable **Clinic Workflow Management System** designed to streamline communication and task management between **Doctors** and **Receptionists**. It automates patient token generation, prescription sharing, billing, and patient history tracking — all stored securely in **Firebase**.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧾 Problem Statement
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Direction system simplifies communication and record-keeping between **Receptionists** and **Doctors**. Receptionists generate patient tokens and enter personal data into the system. Doctors receive this data and add prescriptions. Both roles can access patient history anytime. The system aims to **eliminate manual records**, **reduce overhead**, and **ensure long-term access** to patient data and billing.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 👥 User Roles & Capabilities
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 👨‍⚕️ Doctor Portal
+- Login securely using Firebase Auth
+- View current day's patient tokens
+- Add prescription after patient visit
+- View complete patient medical history
 
-### `npm run build`
+### 🧑‍💼 Receptionist Portal
+- Login securely using Firebase Auth
+- Add new patient entries and generate tokens automatically
+- Input basic patient details (name, age, issue)
+- View prescriptions submitted by doctor
+- Generate bill and finalize patient checkout
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🔍 Key Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 🔐 Role-based Firebase Authentication
+- 🏷️ Auto Token Generation using timestamp-based logic
+- 💊 Doctor Prescription Module
+- 🧾 Billing Generator (based on receptionist submission)
+- 🗂️ Persistent Patient History in Firestore
+- 📜 Logging for each interaction (using JS logging utility)
+- 📤 Firebase Firestore for secure cloud-hosted database
+- 💅 Material UI for clean and accessible interfaces
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🏗️ Project Modules (LLD Summary)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Module           | Description                                                       |
+|------------------|-------------------------------------------------------------------|
+| Auth Module      | Firebase Auth for login (email/password), role-based routing     |
+| Token Manager    | Generates token IDs using timestamp logic + patient info         |
+| Patient Module   | Stores patient info, token, visit time, and prescription details |
+| Doctor Panel     | Displays queued patients, adds prescriptions                     |
+| Billing Module   | Final bill is created after doctor check + receptionist request  |
+| History Viewer   | View patient medical history by either role                      |
+| Logging System   | JS Logger for every mutation and access                          |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> See full [LLD document](architecture/ll-document.pdf)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## ⚙️ System Architecture
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```plaintext
+[React Client]
+     ↓
+[FIREBASE AUTH]
+     ↓
+[Role-based Routing]
+     ↓
+[Firestore (DB)] ←→ [Firebase Storage (if image/pdf storage needed)]
+     ↓
+[Logging System - JS Logger]
