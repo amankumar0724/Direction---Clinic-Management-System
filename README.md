@@ -54,7 +54,7 @@ The Direction system simplifies communication and record-keeping between **Recep
 | History Viewer   | View patient medical history by either role                      |
 | Logging System   | JS Logger for every mutation and access                          |
 
-> See full [LLD document](architecture/ll-document.pdf)
+<!-- > See full [LLD document](architecture/ll-document.pdf) -->
 
 ---
 
@@ -67,6 +67,6 @@ The Direction system simplifies communication and record-keeping between **Recep
      ↓
 [Role-based Routing]
      ↓
-[Firestore (DB)] ←→ [Firebase Storage (if image/pdf storage needed)]
+[Firestore (DB)] 
      ↓
 [Logging System - JS Logger]
